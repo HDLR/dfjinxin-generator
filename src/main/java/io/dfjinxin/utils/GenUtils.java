@@ -13,7 +13,6 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.StringWriter;
 import java.util.*;
 import java.util.zip.ZipEntry;
@@ -185,7 +184,7 @@ public class GenUtils {
         }
 
         if (template.contains("EntityVO.java.vm" )) {
-            return packagePath + "VO" + File.separator + className + ".java";
+            return packagePath + "VO" + File.separator + className + "VO.java";
         }
 
         if (template.contains("Dao.java.vm" )) {
