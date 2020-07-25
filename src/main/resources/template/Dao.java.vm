@@ -1,0 +1,20 @@
+package ${package}.${project}.modules.dao;
+
+import com.seaboxdata.${project}.service.modules.model.${className};
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Repository
+@Mapper
+public interface ${className}Dao extends BaseMapper<${className}> {
+	
+}

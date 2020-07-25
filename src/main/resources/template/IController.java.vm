@@ -1,0 +1,65 @@
+package ${package}.${project}.modules.controller;
+
+import java.util.Map;
+import com.seaboxdata.${project}.api.FeignClientConfig;
+import com.seaboxdata.${project}.api.vo.${className}VO;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.cloud.openfeign.FeignClientsConfiguration;
+import org.springframework.cloud.openfeign.FeignClient;
+import com.seaboxdata.commons.core.util.api.PageUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Api(tags = {"${comments}"})
+@FeignClient(contextId = "${moduleName}${pathName}",
+        name = FeignClientConfig.NAME, url = FeignClientConfig.URL, configuration = FeignClientsConfiguration.class)
+public interface I${className}Controller {
+
+    /**
+     * 列表
+     */
+    @ApiOperation(value = "列表")
+    @GetMapping("/${project}/${pathName}/list")
+    PageUtils list(@RequestParam Map<String, Object> params);
+
+
+#if(${pk})
+    /**
+     * 详细信息
+     */
+    @ApiOperation(value = "详细信息")
+    @GetMapping("/${project}/${pathName}/info/{${pk.attrname}}")
+    ${className}VO info(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname});
+#end
+
+    /**
+     * 保存
+     */
+    @ApiOperation(value = "保存")
+    @PostMapping("/${project}/${pathName}/save")
+    Boolean save(@RequestBody ${className}VO ${classname}VO);
+
+    /**
+     * 修改
+     */
+    @ApiOperation(value = "修改")
+    @PostMapping("/${project}/${pathName}/update")
+    Boolean update(@RequestBody ${className}VO ${classname}VO);
+
+#if(${pk})
+    /**
+     * 删除
+     */
+    @ApiOperation(value = "删除")
+    @DeleteMapping("/${project}/${pathName}/delete")
+    Boolean delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s);
+#end
+
+}

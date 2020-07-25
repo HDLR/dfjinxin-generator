@@ -1,0 +1,75 @@
+package ${package}.${project}.modules.controller;
+
+import java.util.Arrays;
+import java.util.Map;
+import com.seaboxdata.${project}.api.controller.I${className}Controller;
+import com.seaboxdata.${project}.api.vo.${className}VO;
+import com.seaboxdata.${project}.service.modules.service.${className}Service;
+import com.seaboxdata.commons.core.util.api.PageUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@RestController
+public class ${className}Controller implements I${className}Controller{
+
+    @Autowired
+    private ${className}Service ${classname}Service;
+
+    /**
+     * 列表
+     */
+    @Override
+    public PageUtils list(@RequestParam Map<String, Object> params){
+        PageUtils page = ${classname}Service.queryPage(params);
+        return page;
+    }
+
+
+#if(${pk})
+    /**
+     * 信息
+     */
+    @Override
+    public ${className}VO info(@PathVariable("id") Long id){
+        return ${classname}Service.queryById(id);
+    }
+#end
+
+    /**
+     * 保存
+     */
+    @Override
+    public Boolean save(@RequestBody ${className}VO ${classname}VO){
+        return ${classname}Service.save(${classname}VO);
+    }
+
+    /**
+     * 修改
+     */
+    @Override
+    public Boolean update(@RequestBody ${className}VO ${classname}VO){
+        return ${classname}Service.update(${classname}VO);
+    }
+
+#if(${pk})
+    /**
+     * 删除
+     */
+    @Override
+    public Boolean delete(@RequestBody Long[] ids){
+        return ${classname}Service.removeByIds(Arrays.asList(ids));
+    }
+#end
+
+}
