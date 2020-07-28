@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.BeanUtils;
 
 
 /**
@@ -42,7 +43,10 @@ public class ${className}Controller implements I${className}Controller{
      */
     @Override
     public ${className}VO info(@PathVariable("id") Long id){
-        return ${classname}Service.queryById(id);
+        ${className} ${classname} = ${classname}Service.queryById(id)
+        ${className}VO ${classname}VO = new ${className}VO();
+        BeanUtils.copyProperties(${classname}, ${classname}VO);
+        return ${classname}VO;
     }
 #end
 
@@ -51,7 +55,9 @@ public class ${className}Controller implements I${className}Controller{
      */
     @Override
     public Boolean save(@RequestBody ${className}VO ${classname}VO){
-        return ${classname}Service.save(${classname}VO);
+        ${className} ${classname} = new ${className}();
+        BeanUtils.copyProperties(${classname}VO, ${classname});
+        return ${classname}Service.save(${classname});
     }
 
     /**
@@ -59,7 +65,9 @@ public class ${className}Controller implements I${className}Controller{
      */
     @Override
     public Boolean update(@RequestBody ${className}VO ${classname}VO){
-        return ${classname}Service.update(${classname}VO);
+        ${className} ${classname} = new ${className}();
+        BeanUtils.copyProperties(${classname}VO, ${classname});
+        return ${classname}Service.update(${classname});
     }
 
 #if(${pk})

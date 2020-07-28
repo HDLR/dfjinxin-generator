@@ -11,7 +11,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.springframework.beans.BeanUtils;
 import com.seaboxdata.${project}.service.modules.model.${className};
-import com.seaboxdata.${project}.api.vo.${className}VO;
 
 
 @Service("${classname}Service")
@@ -28,25 +27,19 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${clas
     }
 
     @Override
-    public ${className}VO queryById(Long id) {
+    public ${className} queryById(Long id) {
         ${className} ${classname} = this.getById(id);
-        ${className}VO ${classname}VO = new ${className}VO();
-        BeanUtils.copyProperties(${classname}, ${classname}VO);
-        return ${classname}VO;
+        return ${classname};
     }
 
     @Override
-    public Boolean save(${className}VO ${classname}VO) {
-        ${className} ${classname} = new ${className}();
-        BeanUtils.copyProperties(${classname}VO, ${classname});
+    public Boolean save(${className} ${classname}) {
         this.save(${classname});
         return true;
     }
 
     @Override
-    public Boolean update(${className}VO ${classname}VO) {
-        ${className} ${classname} = new ${className}();
-        BeanUtils.copyProperties(${classname}VO, ${classname});
+    public Boolean update(${className} ${classname}) {
         this.updateById(${classname});
         return true;
     }
