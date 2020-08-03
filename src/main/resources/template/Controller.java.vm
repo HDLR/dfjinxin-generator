@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 import com.seaboxdata.${project}.api.controller.I${className}Controller;
 import com.seaboxdata.${project}.api.vo.${className}VO;
+import com.seaboxdata.${project}.service.modules.model.${className};
 import com.seaboxdata.${project}.service.modules.service.${className}Service;
 import com.seaboxdata.commons.core.util.api.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class ${className}Controller implements I${className}Controller{
      */
     @Override
     public ${className}VO info(@PathVariable("id") Long id){
-        ${className} ${classname} = ${classname}Service.queryById(id)
+        ${className} ${classname} = ${classname}Service.queryById(id);
         ${className}VO ${classname}VO = new ${className}VO();
         BeanUtils.copyProperties(${classname}, ${classname}VO);
         return ${classname}VO;
