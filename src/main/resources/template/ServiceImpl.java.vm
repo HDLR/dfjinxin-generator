@@ -33,7 +33,7 @@ public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${clas
     }
 
     @Override
-    public Boolean save(${className} ${classname}) {
+    public Boolean insert(${className} ${classname}) {
         this.save(${classname});
         return true;
     }
