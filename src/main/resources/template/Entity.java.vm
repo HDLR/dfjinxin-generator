@@ -34,7 +34,7 @@ public class ${className} implements Serializable {
 	 * $column.comments
 	 */
 	#if($column.columnName == $pk.columnName)
-@TableId(value = "$column.attrname", type = IdType.INPUT)
+@TableId(value = "id", type = IdType.INPUT)
 	private $column.attrType $column.attrname;
 	#elseif($column.columnName == "create_tm")
 @TableField(fill = FieldFill.INSERT)
