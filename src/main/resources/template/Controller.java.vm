@@ -57,7 +57,7 @@ public class ${className}Controller implements I${className}Controller{
     public Boolean save(@RequestBody ${className}VO ${classname}VO){
         ${className} ${classname} = new ${className}();
         BeanUtils.copyProperties(${classname}VO, ${classname});
-        return ${classname}Service.save(${classname});
+        return ${classname}Service.insert(${classname});
     }
 
     /**
