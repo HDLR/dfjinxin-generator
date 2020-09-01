@@ -54,7 +54,7 @@
           this.$refs['dataForm'].resetFields()
           if (this.dataForm.${pk.attrname}) {
             this.$httpTAG({
-              url: #[[this.$httpTAG.adornUrl]]#(`/${project}/${moduleName}/${pathName}/info/#[[$]]#{this.dataForm.${pk.attrname}}`),
+              url: #[[this.$httpTAG.adornUrl]]#(`/${project}${moduleName}/${pathName}/info/#[[$]]#{this.dataForm.${pk.attrname}}`),
               method: 'get',
               #[[params: this.$httpTAG.adornParams()]]#
             }).then(({data}) => {
@@ -72,7 +72,7 @@
         #[[this.$refs['dataForm'].validate((valid) => {]]#
           if (valid) {
             this.$httpTAG({
-              url: #[[this.$httpTAG.adornUrl]]#(`/${project}/${moduleName}/${pathName}/${!this.dataForm.${pk.attrname} ? 'save' : 'update'}`),
+              url: #[[this.$httpTAG.adornUrl]]#(`/${project}${moduleName}/${pathName}/${!this.dataForm.${pk.attrname} ? 'save' : 'update'}`),
               method: 'post',
               #[[data: this.$httpTAG.adornData({]]#
 #foreach($column in $columns)

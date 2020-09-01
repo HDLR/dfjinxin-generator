@@ -131,7 +131,7 @@
           type: 'warning'
         }).then(() => {
           #[[this.$httpTAG({]]#
-            url: #[[this.$httpTAG.adornUrl]]#('/${project}/${moduleName}/${pathName}/delete'),
+            url: #[[this.$httpTAG.adornUrl]]#('/${project}${moduleName}/${pathName}/delete'),
             method: 'delete',
             data: this.$httpTAG.adornData(ids, false)
           }).then(({data}) => {
