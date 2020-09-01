@@ -54,17 +54,15 @@
           this.$refs['dataForm'].resetFields()
           if (this.dataForm.${pk.attrname}) {
             this.$httpTAG({
-              url: #[[this.$httpTAG.adornUrl]]#(`/tag/${moduleName}/${pathName}/info/#[[$]]#{this.dataForm.${pk.attrname}}`),
+              url: #[[this.$httpTAG.adornUrl]]#(`/${project}/${moduleName}/${pathName}/info/#[[$]]#{this.dataForm.${pk.attrname}}`),
               method: 'get',
               #[[params: this.$httpTAG.adornParams()]]#
             }).then(({data}) => {
-              if (data && data.code === 0) {
 #foreach($column in $columns)
 #if($column.columnName != $pk.columnName)
-                this.dataForm.${column.attrname} = data.${pathName}.${column.attrname}
+                this.dataForm.${column.attrname} = data.${column.attrname}
 #end
 #end
-              }
             })
           }
         })
@@ -74,7 +72,7 @@
         #[[this.$refs['dataForm'].validate((valid) => {]]#
           if (valid) {
             this.$httpTAG({
-              url: #[[this.$httpTAG.adornUrl]]#(`/tag/${moduleName}/${pathName}/${!this.dataForm.${pk.attrname} ? 'save' : 'update'}`),
+              url: #[[this.$httpTAG.adornUrl]]#(`/${project}/${moduleName}/${pathName}/${!this.dataForm.${pk.attrname} ? 'save' : 'update'}`),
               method: 'post',
               #[[data: this.$httpTAG.adornData({]]#
 #foreach($column in $columns)
@@ -87,19 +85,15 @@
 #end
               })
             }).then(({data}) => {
-              if (data && data.code === 0) {
                 #[[this.$message({]]#
-                  message: '操作成功',
-                  type: 'success',
-                  duration: 1500,
-                  onClose: () => {
+                        message: '操作成功',
+                        type: 'success',
+                        duration: 1500,
+                        onClose: () => {
                     this.visible = false
                     #[[this.$emit('refreshDataList')]]#
-                  }
+                 }
                 })
-              } else {
-                #[[this.$message.error(data.msg)]]#
-              }
             })
           }
         })
