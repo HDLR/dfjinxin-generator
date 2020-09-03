@@ -94,9 +94,9 @@
         }).then(({data}) => {
           this.dataList = data.list
           this.totalPage = data.totalCount
-        })finally{
+        }).finally(() => {
           this.dataListLoading = false
-        }
+        })
       },
       // 每页数
       sizeChangeHandle (val) {
