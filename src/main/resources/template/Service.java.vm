@@ -1,4 +1,4 @@
-package ${package}.${project}.modules.service;
+package ${package}.${project}.service.modules.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.seaboxdata.${project}.service.modules.model.${className};
