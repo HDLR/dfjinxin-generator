@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.seaboxdata.${project}.service.modules.model.${className};
 import com.seaboxdata.commons.core.util.api.PageUtils;
 import java.util.Map;
-import com.seaboxdata.${project}.api.vo.${className}VO;
-import com.seaboxdata.${project}.service.modules.model.${className};
 
 /**
  * ${comments}
